@@ -222,14 +222,9 @@
     </aside>
 
     <!-- Map -->
-    <section id="contact" class="map">
-        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
-        <br />
-        <small>
-            <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
-        </small>
-        </iframe>
-    </section>
+   <section id="contact" class="map">
+	<div id="googleMap" style="width:100%;height:100%;"></div>
+   </section>
 
     <!-- Footer -->
     <footer>
@@ -268,6 +263,20 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    
+    <!-- Google Maps Api -->
+    <<script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script>
+        function initialize() 
+	{
+	    var mapProp = {
+	    center:new google.maps.LatLng(55.8721246,-4.2738243),
+	    zoom:16,
+	    mapTypeId:google.maps.MapTypeId.ROADMAP};
+	var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+	}
+	google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
 
     <!-- Custom Theme JavaScript -->
     <script>
