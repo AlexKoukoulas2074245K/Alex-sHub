@@ -263,26 +263,31 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    
+
     <!-- Google Maps Api -->
     <<script src="http://maps.googleapis.com/maps/api/js"></script>
     <script>
-    	var myCenter = new google.maps.LagLng(55.8721246,-4.2738243)
-	    function initialize() 
-		{
-		    var mapProp = {
-		    center: myCenter,
-		    zoom:15,
-		    mapTypeId:google.maps.MapTypeId.ROADMAP};
+        var myCenter=new google.maps.LatLng(55.871687,-4.2746661);
+        var marker;
 
-			var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+        function initialize()
+        {
+            var mapProp = {
+                center:myCenter,
+                zoom:17,
+                mapTypeId:google.maps.MapTypeId.ROADMAP};
 
-			var marker=new google.maps.Marker({position:myCenter, animation:google.maps.Animation.BOUNC});
-			marker.setMap(map);
-		}
-		google.maps.event.addDomListener(window, 'load', initialize);
+            var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+            var marker=new google.maps.Marker({
+                position:myCenter,
+                animation:google.maps.Animation.BOUNCE});
+
+            marker.setMap(map);
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
     </script>
-
     <!-- Custom Theme JavaScript -->
     <script>
     // Closes the sidebar menu
@@ -318,3 +323,4 @@
 </body>
 
 </html>
+
