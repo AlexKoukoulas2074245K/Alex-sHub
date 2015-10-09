@@ -1,0 +1,20 @@
+import os
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mywebsite_project.settings')
+
+import django
+django.setup()
+
+from webapp.models import Project
+
+def populate():
+    add_project(name="Pokemon 3D", img_small_name="pkmnrevo_small", img_large_name="pkmnrevo_large", subheading="(work in progress)", description="This is my latest project. Building upon the knowledge (and assets) I've gained from the pokemon yellow clone project, I am working on a 3D version of the game using C++ and D3D11 and various models I made with blender this is just a prealpha demo demonstrating the approach I'm taking with this project", details="To be filled", download_link="https://www.dropbox.com/s/kqla5y2rae5e0vl/pkmnrevo.rar?dl=0", github_link="https://github.com/AlexKoukoulas2074245K/Code-PR")
+        
+def add_project(name, img_small_name, img_large_name, subheading, description, details, download_link="", github_link="", views=0):
+        
+    project = Project.objects.get_or_create(name=name, img_small_name=img_small_name, img_large_name=img_large_name, subheading=subheading, description=description, details=details, download_link=download_link, github_link=github_link, views=views)[0]
+    project.save()
+    return project
+    
+if __name__ == '__main__':
+    print "Starting population script..."
+    populate()

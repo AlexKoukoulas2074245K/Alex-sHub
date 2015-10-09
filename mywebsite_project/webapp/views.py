@@ -1,19 +1,26 @@
 from django.shortcuts import render
+from webapp.models import Project
+from random import shuffle
 
 def index(request):
-    return render(request, 'webapp/index.html', {});
+    context_dict = {}
+    context_dict['projects'] = Project.objects.all()
+    return render(request, 'webapp/index.html', context_dict);
 
-def pkmnrevo(request):
-	return render(request, 'webapp/pkmnrevo.html', {});
+def project(request, project_name_slug):
 
-def arkanoid(request):
-	return render(request, 'webapp/arkanoid.html', {});
+    context_dict = {}
 
-def scrabble(request):
-	return render(request, 'webapp/scrabble.html', {});
+    try:
+        project = Project.objects.get(slug=project_name_slug)
+        other = Project.objects.exclude(name=project.name)
+        context_dict['project'] = project
+        context_dict['other'] = other
 
-def tichu(request):
-	return render(request, 'webapp/tichu.html', {});
+    except Project.DoesNotExist:
+        print "Project doesn't exist"
+        return index(request)
 
-def pokyellow(request):
-	return render(request, 'webapp/pokyellow.html', {});
+    return render(request, 'webapp/projectpage.html', context_dict)
+        
+        
