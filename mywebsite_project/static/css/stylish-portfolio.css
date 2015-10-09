@@ -168,6 +168,13 @@ hr.small {
     padding: 50px 0;
 }
 
+/* Hi Buton */
+#hi-button{
+    font-size: 60px;
+    border: 2px solid;
+    border-radius: 25px;
+}
+
 /* Services */
 
 .services {
