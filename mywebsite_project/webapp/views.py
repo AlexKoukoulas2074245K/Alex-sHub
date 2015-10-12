@@ -5,8 +5,11 @@ from random import shuffle
 def index(request):
     context_dict = {}
     context_dict['projects'] = Project.objects.all()
-    return render(request, 'webapp/index.html', context_dict);
+    return render(request, 'webapp/index.html', context_dict)
 
+def resume(request):
+    return render(request, 'webapp/resume.html', {})
+    
 def project(request, project_name_slug):
 
     context_dict = {}
@@ -22,5 +25,3 @@ def project(request, project_name_slug):
         return index(request)
 
     return render(request, 'webapp/projectpage.html', context_dict)
-        
-        

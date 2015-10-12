@@ -2,7 +2,6 @@
 {% load staticfiles %}
 
 {% block body_block %}
-
     <!-- Page Content -->
     <div class="container">
 
@@ -26,30 +25,32 @@
         <div id="desc" class="col-md-4">
             <h3>Project Description</h3>
             <p>{{ project.description }}</p>
-            <h3>{{ project.details }}</h3>
-            <ul>
-                <li><a href="{{ project.github_link }}">Github page</a></li>
-            </ul>
+            <h3>Minimum Requirements</h3>
+            <p>{{ project.details|safe }}</p>
         </div>
 
+        <div id="gitpage" class="col-md-4">
+            <h3>
+                <a href="{{ project.github_link }}" class="btn btn-info" role="button" style="font-size:20px;">Github Page</a>
+            </h3>
+        </div>
         <div id="serve" class="col-md-4">
-            <h3>Download</h3>
-            <ul>
-                <li><a href="{{ project.download_link }}">Download!</a></li>
-            </ul>
+            <h3>
+                <a href="{{ project.download_link }}" class="btn btn-success" role="button" style="font-size:20px;">Download!</a>
+            </h3>
         </div>
     </div>
     <!-- /.row -->
-
+    <hr>
     <!-- Related Projects Row -->
     <div class="row">
 
         <div id="related" class="col-lg-12">
-            <h3 class="page-header">Other Projects</h3>
+            <h3>Other Projects</h3>
         </div>
 
         {% for project in other %}
-        <div class="col-sm-3 col-xs-6">
+        <div class="col-sm-4">
             <a href="/project/{{ project.slug }}">
                 <img class="img-responsive portfolio-item" src="{{ STATIC_URL }}img/{{ project.img_small_name }}.jpg" alt="">
             </a>
