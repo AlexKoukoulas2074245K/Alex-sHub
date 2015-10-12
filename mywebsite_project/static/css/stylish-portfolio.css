@@ -239,13 +239,6 @@ hr.small {
     border-radius: 25px;
 }
 
-#cv-area{
-    background: url(../img/cv_bg.jpg) no-repeat center center scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-}
 /* Footer */
 
 footer {
