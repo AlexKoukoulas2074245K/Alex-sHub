@@ -153,25 +153,32 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="portfolio-item">
+                                <a href="/project/{{ projects.4.slug }}">
+                                    <img class="img-portfolio img-responsive" src="{{ STATIC_URL }}img/{{ projects.4.img_small_name }}.jpg" %}>
+                                </a>
+                            </div>
+                        </div>
+						<div class="col-md-6">
+                            <div class="portfolio-item">
                                 <a href="/project/{{ projects.0.slug }}">
                                     <img class="img-portfolio img-responsive" src="{{ STATIC_URL }}img/{{ projects.0.img_small_name }}.jpg" %}>
                                 </a>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="/project/{{ projects.1.slug }}">
-                                    <img class="img-portfolio img-responsive" src="{{ STATIC_URL }}img/{{ projects.1.img_small_name }}.jpg" %}>
-                                </a>
-                            </div>
-                        </div>
+                        </div>                        
                     </div>
                     <!-- /.row (nested) -->
                     <a id="proj-toggle" class="btn btn-dark" onclick="toggleProjects()">View More Projects</a>
                     <!-- Hidden Projects -->
                     <br><br><br>
-                    <div id="hidden-proj" class="row" style="display:none;">
-                        <div class="col-md-6">
+                    <div id="hidden-proj" class="row" style="display:none;">                        
+						<div class="col-md-6">
+                            <div class="portfolio-item">
+                                <a href="/project/{{ projects.1.slug }}">
+                                        <img class="img-portfolio img-responsive" src="{{ STATIC_URL }}img/{{ projects.1.img_small_name }}.jpg" %}>
+                                </a>
+                            </div>
+                        </div>
+						<div class="col-md-6">
                             <div class="portfolio-item">
                                 <a href="/project/{{ projects.2.slug }}">
                                     <img class="img-portfolio img-responsive" src="{{ STATIC_URL }}img/{{ projects.2.img_small_name }}.jpg" %}>
